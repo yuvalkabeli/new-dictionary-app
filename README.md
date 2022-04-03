@@ -38,51 +38,7 @@
 
 <p style= "text-align:right">(<a href="#top">back to top</a>)</p>
 
-## Assignment
-
-#### Your about to build an english-dictionary app.
-
-- Download [English Dictionary in CSV format](https://www.bragitoff.com/2016/03/english-dictionary-in-csv-format/)
-- Set up a DynamoDB with `Dictionary` table.
-
-<p style= "text-align:right">(<a href="#top">back to top</a>)</p>
-
-## DATABASE
-
-- Parse & Insert all words, in a common structure, to `Dictionary` table.
-
-<p style= "text-align:right">(<a href="#top">back to top</a>)</p>
-
-
-## Server Requirements
-
-- Build a REST API with the following end point(s):
-
-* [x] `GET /:word` - if word has more than one parts of speech will return all words part of speech, else, will return a word + definition + part of speech.
-* [x] `GET /:word/:partOfSpeech` - will return a word + definition + part of speech [(noun, verb, adjectives, etc...)](https://www.dictionary.com/e/parts-of-speech/) `{updated: true}` if succeed.
-* [x] `GET /part-of-speech/:part` - for example, `/part-of-speech/adjective`, will return a random word + definition + part of speech (`part` is enum).
-
-<p style= "text-align:right">(<a href="#top">back to top</a>)</p>
-
-<!-- Running-tests-->
-
-## Client Requirements
-
-- [x] Build a `create-react-app` english dictionary app (mobile first)
-- [x] URL routes:
-    - `/:word` - dynamic route - `word` is dynamic URL parameter, used to request backend api.
-    - `/:word/:partOfSpeech` - dynamic route - `word` is dynamic URL parameter, used to request backend api.
-    - `/part-of-speech/:part` - `part` is enum URL parameter, used to request backend api.
-    - Each word in dictionary is clickable and will redirect to a common URL.
-    - **BONUS** should be deployed to `S3 bucket`.
-
-
-<p style= "text-align:right">(<a href="#top">back to top</a>)</p>
-
 ## Architecture
-
-![Architecture](./images/Dictionary-Architecture.png)
-
 
 <p style= "text-align:right">(<a href="#top">back to top</a>)</p>
 
@@ -90,7 +46,7 @@
 
 - #### IDE
 
-  [![Vscode][vscode-shield]][vscode-url]
+  Vscode
 
 - #### Frameworks, Platforms and Libraries
   [![AWS][aws-shield]][aws-url]
@@ -117,18 +73,6 @@
 - [x] [DictionaryApp](https://english-dictionary-sagi.s3.us-east-2.amazonaws.com/index.html)   
 
 <p style= "text-align:right">(<a href="#top">back to top</a>)</p>
-
-<!-- Badges -->
-
-<!-- build with -->
-
-<!-- IDE -->
-
-[vscode-url]: https://code.visualstudio.com/
-[vscode-shield]: https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white
-
-<!-- Frameworks -->
-<!-- Nodejs -->
 
 [nodejs-url]: https://nodejs.org/en/
 [nodejs-shield]: https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=whit
@@ -185,7 +129,23 @@
 [dynamoDB-url]: https://aws.amazon.com/dynamodb/
 <!-- Linters -->
 
+### Prerequisites
 
+-NodeJS (NPM)
 
+### Installation
 
-
+1.Clone the repo
+   ```sh
+   git clone https://github.com/yuvalkabeli/new-dictionary-app.git
+   ```
+2.  Install NPM packages(Install it in both the server terminal and client terminal)
+   ```sh
+   npm install
+   ```
+3.Input the start command(This as well needs to be in both terminals mentioned above)
+```sh
+   npm start
+   ```
+   
+<p align="right">(<a href="#top">back to top</a>)</p>

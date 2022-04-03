@@ -1,5 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid'
+
+// A component the makes each word clickable and linked to the words definition
 export default function Words({ renderDefinitions, words, setSelectedPart, capitalize }) { //[ 'A', 'univalve', 'mollusk', 'of' ]
   return (
     <div>

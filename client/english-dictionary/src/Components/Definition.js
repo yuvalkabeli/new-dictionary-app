@@ -27,7 +27,7 @@ export default function Definition({ renderDefinitions, wordsDefinitions, setSel
   }
   return (
     <div>
-      {wordsDefinitions.map(({ definition, partOfSpeech, word }) => ( // [word:'sddfs, definfitoin:''id, partofspeech:'n.'] 
+      {wordsDefinitions.map(({ definition, partOfSpeech, word }) => ( 
         <div key={nanoid()}>
           <div><b>{word}:</b> ({convertPartToWord(partOfSpeech)})</div>
           <div>

@@ -1,0 +1,3 @@
+These are the definitions for all words with a file for each letter.
+Use csvtoJson to transfer them into your database, mine works with AWS's DynamoDB. 
+All the needed functions for translation of the csv files are in the assetsToDynamoDB.js in the root directory.

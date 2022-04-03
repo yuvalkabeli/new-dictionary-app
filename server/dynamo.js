@@ -15,14 +15,12 @@ AWS.config.update({
 
 const dynamoClient = new AWS.DynamoDB();
 const docClient = new AWS.DynamoDB.DocumentClient();
-// const TABLE_NAME = 'english-dictionary';
 const getWords = async () => {
     const params = {
         TableName: TABLE_NAME,
     };
     const words = await dynamoClient.scan(params).promise();
     return words;
-    // return words.length;
 };
 
 const getWordById = async (id) => {

@@ -3,6 +3,7 @@ const fs = require('fs')
 const { nanoid } = require('nanoid')
 const { addOrUpdateWord } = require('./server/dynamo');
 
+//recieves file path and returns an array of words
 async function getWords(csvFilePath) {
     let jsonArray = await csv().fromFile(csvFilePath);
     jsonArray = jsonArray.map((word) => {
@@ -15,9 +16,8 @@ async function getWords(csvFilePath) {
     return jsonArray
 }
 
-// getWords()   
 
-
+// recieves words string and returns the part of speech
 const getPartOfSpeech = (word) => {
     let counter = 0
     let counter2 = 0
@@ -39,6 +39,7 @@ const getPartOfSpeech = (word) => {
     return word
 }
 
+//recieves word string and returns the definition part
 const getDefinition = (word) => {
     let counter = 0
     for (let i = 0; i < word.length; i++) {
@@ -50,7 +51,7 @@ const getDefinition = (word) => {
     }
     return word
 }
-
+// recieves word string and returns the word part
 const getWord = (word) => {
     for (let i = 0; i < word.length; i++) {
         if (word.charAt(i) === " ") {
@@ -60,15 +61,16 @@ const getWord = (word) => {
     return word
 }
 
+
 async function getAll() {
     const files = fs.readdirSync('./assets')
     files.forEach(async (file, i) => {
         try {
-            file = await getWords(`./assets/${file}`)
-            const newFile = await file.map(async (word) => { addOrUpdateWord({ ...word, id: nanoid() }) })
+            fileObj = await getWords(`./assets/${file}`)
+            const newFile = await fileObj.map(async (word) => { addOrUpdateWord({ ...word, id: nanoid() }) })
             console.log(i);
             await Promise.all(newFile);
-            return file
+            return fileObj
 
         } catch (error) {
             console.log(error, i);
